@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/auth";
 
 export default function SignUp() {
 
-    const {signUp, loading} = useContext(AuthContext)
+    const {signUp, loadingAuth} = useContext(AuthContext)
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -23,7 +23,6 @@ export default function SignUp() {
         <Background>
             <Container
             behavior = {Platform.OS === 'ios' ? 'padding' : undefined}
-            enable = {true} 
             >
             <AreaInput>
                 <Input
@@ -48,7 +47,7 @@ export default function SignUp() {
                 />
             </AreaInput>
             <SubmitButton activeOpacity = {0.8} onPress={handleSignUp}>
-                {loading ? <ActivityIndicator size={20} color="#FFF"/> : <SubmitText>Cadastrar</SubmitText>}
+                {loadingAuth ? <ActivityIndicator size={20} color="#FFF"/> : <SubmitText>Cadastrar</SubmitText>}
             </SubmitButton>
             </Container>
         </Background>
